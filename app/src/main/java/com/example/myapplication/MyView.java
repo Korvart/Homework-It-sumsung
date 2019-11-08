@@ -38,12 +38,15 @@ public class MyView extends View {
             array[i] += values[i];
         }
     }
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    void drawBalls(Canvas canvas){
         for (int i = 0; i < N; i++) {
             canvas.drawCircle(x[i], y[i], 20, paint);
         }
+    }
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        drawBalls(canvas);
         add(x, vx);
         add(y, vy);
         invalidate();
