@@ -6,6 +6,7 @@ package com.example.myapplication;
         import android.graphics.Paint;
         import android.view.View;
 
+
 public class MyView extends View {
     Paint paint = new Paint();
     int N = 10; // количество шариков
@@ -13,41 +14,38 @@ public class MyView extends View {
     float[] y  = new float[N];
     float[] vx = new float[N];
     float[] vy = new float[N];
-    boolean started;
+
+    float rand(float min , float max){
+        return (float)(Math.random() * (max - min + 1)) + min;
+    }
+
+    void fillRandom(float[] array , float min, float max){
+        for (int i = 0; i < array.length; i++){
+            array[i] = rand (min, max);
+        }
+    }
 
     public MyView(Context context) {
         super(context);
+        fillRandom(x, 0, 500);
+        fillRandom(y, 0, 500);
+        fillRandom(vx, -3, 3);
+        fillRandom(vy, -3,3);
+    }
+
+    void add(float[] array , float[] values){
+        for (int i = 0; i < array.length; i++){
+            array[i] += values[i];
+        }
     }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!started){
-            for (int i = 0; i < N; i++){
-                x[i] = (float)(Math.random() * 500);
-                y[i] = (float)(Math.random() * 500);
-                vx[i] = (float)(Math.random() * 6 - 3);
-                vy[i] = (float)(Math.random() * 6 - 3);
-            }
-            started = true;
-        }
-        for (int i = 0; i < N-1; i++) {
-            canvas.drawLine(x[i], y[i], x[i + 1], y[i + 1], paint);
-        }
         for (int i = 0; i < N; i++) {
-            x[i] += vx[i];
-            y[i] += vy[i];
-            if (x[i] < 0 || x[i] > this.getHeight()){
-
-                vx[i] = - vx[i];
-
-            }
-            if (y[i] < 0 || y[i] > this.getHeight()){
-
-                vy[i] = - vy[i];
-
-            }
+            canvas.drawCircle(x[i], y[i], 20, paint);
         }
+        add(x, vx);
+        add(y, vy);
         invalidate();
-
     }
 }
