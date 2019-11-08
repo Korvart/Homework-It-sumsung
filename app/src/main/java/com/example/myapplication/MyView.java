@@ -26,5 +26,15 @@ public class MyView extends View {
             canvas.drawLine(0, y, canvas.getHeight() - y, canvas.getHeight(), paint);
             y += 30;
         }
+        x=canvas.getWidth();
+        y=canvas.getHeight();
+        while (x>0){
+            canvas.drawLine(x, canvas.getHeight(), canvas.getWidth(), canvas.getWidth()-x, paint);
+            x-=30;
+        }
+        while (y>0) {
+            canvas.drawLine(canvas.getWidth(), y, canvas.getHeight() - y, canvas.getHeight(), paint);
+            y -= 30;
+        }
     }
 }
