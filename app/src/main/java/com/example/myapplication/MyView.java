@@ -7,7 +7,9 @@ import android.graphics.Paint;
 import android.view.View;
 
 public class MyView extends View {
-
+    Paint paint = new Paint();
+    float x;
+    long lastTime = System.currentTimeMillis();
 
     public MyView(Context context) {
         super(context);
@@ -15,26 +17,13 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Paint paint = new Paint();
-        int x=0;
-        int y=0;
-        while (x<canvas.getWidth()){
-            canvas.drawLine(x, 0, canvas.getWidth(), canvas.getWidth()-x, paint);
-            x+=30;
-        }
-        while (y<canvas.getHeight()) {
-            canvas.drawLine(0, y, canvas.getHeight() - y, canvas.getHeight(), paint);
-            y += 30;
-        }
-        x=canvas.getWidth();
-        y=canvas.getHeight();
-        while (x>0){
-            canvas.drawLine(x, canvas.getHeight(), canvas.getWidth(), canvas.getWidth()-x, paint);
-            x-=30;
-        }
-        while (y>0) {
-            canvas.drawLine(canvas.getWidth(), y, canvas.getHeight() - y, canvas.getHeight(), paint);
-            y -= 30;
-        }
+        canvas.drawCircle(x, 300, 20, paint);
+        // готовим x c учетом прошедшего времени
+        // c момента последней перерисовки
+        long nowTime = System.currentTimeMillis();
+        x += 0.01f * (nowTime - lastTime);
+        // сохраняем время последней перерисовки
+        lastTime = nowTime;
+        invalidate();
     }
 }
