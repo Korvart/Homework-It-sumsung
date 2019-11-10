@@ -9,7 +9,7 @@ package com.example.myapplication;
 
 public class MyView extends View {
     Paint paint = new Paint();
-    int N = 10; // количество шариков
+    int N = 10;
     float[] x  = new float[N];
     float[] y  = new float[N];
     float[] vx = new float[N];
