@@ -1,54 +1,25 @@
 package com.example.myapplication;
 
-        import android.content.Context;
-        import android.graphics.Canvas;
-        import android.graphics.Color;
-        import android.graphics.Paint;
-        import android.view.View;
-
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
 
 public class MyView extends View {
     Paint paint = new Paint();
-    int N = 10;
-    float[] x  = new float[N];
-    float[] y  = new float[N];
-    float[] vx = new float[N];
-    float[] vy = new float[N];
-
-    float rand(float min , float max){
-        return (float)(Math.random() * (max - min + 1)) + min;
-    }
-
-    void fillRandom(float[] array , float min, float max){
-        for (int i = 0; i < array.length; i++){
-            array[i] = rand (min, max);
-        }
-    }
-
-    public MyView(Context context) {
+    MyView(Context context) {
         super(context);
-        fillRandom(x, 0, 500);
-        fillRandom(y, 0, 500);
-        fillRandom(vx, -3, 3);
-        fillRandom(vy, -3,3);
-    }
-
-    void add(float[] array , float[] values){
-        for (int i = 0; i < array.length; i++){
-            array[i] += values[i];
-        }
-    }
-    void drawBalls(Canvas canvas){
-        for (int i = 0; i < N; i++) {
-            canvas.drawCircle(x[i], y[i], 20, paint);
-        }
     }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawBalls(canvas);
-        add(x, vx);
-        add(y, vy);
-        invalidate();
+        paint.setColor(Color.BLUE);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(0, 0, 50, getHeight(), paint);
+        canvas.drawRect(0, 0, getWidth(), 50, paint);
+        canvas.drawRect(getWidth(), getHeight(), getWidth()-50, 0, paint);
+        canvas.drawRect(getWidth(), getHeight(), 0, getHeight()-50, paint);
     }
 }
