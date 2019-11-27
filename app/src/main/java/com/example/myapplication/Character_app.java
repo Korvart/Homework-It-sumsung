@@ -9,9 +9,8 @@ import android.graphics.Paint;
 import android.view.SurfaceView;
 import android.view.View;
 
-public class Character_app extends View{
+public class Character_app extends SurfaceView{
     Paint paint = new Paint();
-    Character co=new Character(400, 900);
     Character_app(Context context) {
         super(context);
     }
@@ -20,6 +19,6 @@ public class Character_app extends View{
         Bitmap imageCertain = BitmapFactory.decodeResource(getResources(),R.drawable.floor1);
         Bitmap imageUnit = BitmapFactory.decodeResource(getResources(),R.drawable.hero1);
         canvas.drawBitmap(imageCertain, 0, 0,null);
-        canvas.drawBitmap(imageUnit, co.x(), co.y(),null);
+        canvas.drawBitmap(imageUnit, Character.x, Character.y,null);
     }
 }

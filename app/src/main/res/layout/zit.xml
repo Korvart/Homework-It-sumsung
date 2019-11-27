@@ -1,59 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
         android:text="Фамилия" />
-
 
     <TextView
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
+        android:layout_alignTop="@+id/tv"
+        android:layout_marginTop="24dp"
         android:text="Имя" />
-
-
     <TextView
-    android:id="@+id/tv2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        android:layout_gravity="left"
-    android:text="Отчество" />
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv1"
+        android:layout_marginTop="24dp"
+        android:text="Отчество" />
     <TextView
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Школа" />
+        android:layout_alignTop="@+id/tv2"
+        android:layout_marginTop="24dp"
+        android:text="Год" />
     <TextView
         android:id="@+id/tv4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Город" />
+        android:layout_alignTop="@+id/tv3"
+        android:layout_marginTop="24dp"
+        android:text="Школа" />
     <TextView
         android:id="@+id/tv5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Опыт программирования" />
+        android:layout_alignTop="@+id/tv4"
+        android:layout_marginTop="24dp"
+        android:text="Город" />
     <TextView
         android:id="@+id/tv6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Знание языков программирования" />
-
+        android:layout_alignTop="@+id/tv5"
+        android:layout_marginTop="24dp"
+        android:text="Опыт программирования" />
     <TextView
         android:id="@+id/tv7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-</LinearLayout>
+        android:layout_alignTop="@+id/tv6"
+        android:layout_marginTop="24dp"
+        android:text="Знание языков программирования" />
+
+    <EditText
+        android:id="@+id/tv8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv"
+        android:layout_marginLeft="24dp"
+        android:layout_alignTop="@+id/tv"
+        android:layout_marginTop="0dp"
+        />
+
+    <EditText
+        android:id="@+id/tv9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv1"
+        android:layout_alignTop="@+id/tv8"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="45dp" />
+
+    <EditText
+        android:id="@+id/tv10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv2"
+        android:layout_marginLeft="176dp" />
+
+</RelativeLayout>
