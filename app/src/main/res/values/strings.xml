@@ -5,4 +5,5 @@
     <string name="b">Пароль</string>
     <string name="c">Введите C</string>
     <string name="calculate">Ввести</string>
+    <string name="r">Зарегистрироваться</string>
 </resources>

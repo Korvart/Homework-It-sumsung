@@ -21,15 +21,14 @@
         android:hint="@string/b" />
 
     <Button
+        android:id="@+id/t"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="check"
-        android:text="@string/calculate" />
-
-    <TextView
-        android:id="@+id/result"
+        android:text="@string/r" />
+    <EditText
+        android:id="@+id/et"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24dp" />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

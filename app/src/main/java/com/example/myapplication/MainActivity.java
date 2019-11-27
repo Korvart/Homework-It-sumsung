@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
      public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dz);
+
     }
     public void check(View view){
         String p =(((EditText) findViewById(R.id.password)).getText().toString());
@@ -34,9 +36,18 @@ public class MainActivity extends AppCompatActivity {
             result.setText("Пароль верный");
             result.setTextColor(Color.GREEN);
         }else{
+            Intent i;
+            i = new Intent(MainActivity.this, SecondActivity.class);
+            startActivityForResult(i, 0);
             TextView result = (TextView) findViewById(R.id.result);
-            result.setText("Пароль не верный");
-            result.setTextColor(Color.RED);
+        }
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (resultCode) {
+            case RESULT_OK:
+                TextView result = (TextView) findViewById(R.id.result);
+                result.setText(data.getStringExtra("et"));
+                break;
         }
     }
 }
